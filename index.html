@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farid Loveee</title>
+    <title>Farid Lovee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&family=Caveat:wght@500&family=Mochiy+Pop+P+One&family=Cute+Font&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #bde0fe; /* Biru muda utama */
-            --secondary-blue: #a2d2ff; /* Biru muda lebih gelap untuk aksen */
-            --light-blue: #e0f2fe; /* Biru paling muda */
+            --primary-blue: #bde0fe;
+            --secondary-blue: #a2d2ff;
+            --light-blue: #e0f2fe;
             --soft-pink: #ffc2d1;
             --purple-accent: #c7bfff;
-            --dark-text: #3c4048; /* Warna teks gelap yang lembut */
+            --dark-text: #3c4048;
             --soft-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             --cute-blue-bg-start: #d3eafc; 
             --cute-blue-bg-end: #a8e0ff;
@@ -39,10 +39,6 @@
             flex-direction: column;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2), inset 0 0 0 6px white;
             background-color: var(--light-blue);
-            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 1px, transparent 1px),
-                              radial-gradient(circle at 70% 80%, rgba(255,255,255,0.2) 1px, transparent 1px),
-                              radial-gradient(circle at 40% 50%, rgba(255,255,255,0.2) 1px, transparent 1px);
-            background-size: 20px 20px;
             border-radius: 20px;
             position: relative; 
             padding: 0;
@@ -64,13 +60,25 @@
             background: linear-gradient(180deg, var(--light-blue), var(--primary-blue));
             border-radius: 20px;
         }
+        
+        /* KEMBALIKAN IKON HATI DI SINI */
         .heart { 
-            color: var(--soft-pink); font-size: 70px; margin-bottom: 25px;
+            color: var(--soft-pink); 
+            font-size: 70px;         
+            margin-bottom: 15px;     
             text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            display: block; 
+            line-height: 1; 
         }
+
         #loginView h1 { 
-            font-family: 'Pacifico', cursive; color: var(--dark-text); font-size: 58px; 
-            margin-top: 0; margin-bottom: 35px; text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+            font-family: 'Mochiy Pop P One', sans-serif; 
+            color: var(--dark-text); 
+            font-size: 58px; 
+            margin-top: 0; 
+            margin-bottom: 35px; 
+            text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+            letter-spacing: 2px; 
         }
         .form-group { margin-bottom: 25px; width: 65%; max-width: 450px; }
         input[type="text"] {
@@ -151,55 +159,107 @@
         }
         .profile-body p { margin: 0; font-size: 19px; line-height: 1.7; color: #666; }
         
-        #readmeView.page-content.active { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background: var(--light-blue); overflow: hidden; position: relative; }
-        .clouds-bg { position: absolute; top: 0; left: 0; width: 200%; height: 100%; background: url(https://i.imgur.com/G094eF9.png) repeat-x; animation: moveClouds 40s linear infinite; }
-        @keyframes moveClouds { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        #readmeView.page-content.active { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100%; 
+            background-color: #fdf6f6; 
+            overflow: hidden; 
+            position: relative; 
+        }
+
+        #readmeView.page-content.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/L5k6t4X/mofusand-pattern.png');
+            background-repeat: repeat;
+            background-size: 150px;
+            opacity: 0.4; 
+            z-index: 0;
+        }
+        
         .envelope-wrapper { margin-top: 0; user-select: none; display: flex; flex-direction: column; align-items: center; z-index: 1; }
         .envelope { position: relative; width: 340px; height: 220px; cursor: pointer; transition: transform 0.3s ease-out; }
         .envelope::after { content: '\f004'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 48%; left: 50%; transform: translate(-50%, -50%); color: rgba(255, 255, 255, 0.7); font-size: 45px; z-index: 5; transition: all 0.6s; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
         .envelope-wrapper.open .envelope::after { opacity: 0; }
         .envelope-back { position: absolute; width: 100%; height: 100%; background-color: var(--primary-blue); border-radius: 12px; z-index: 1; transition: opacity 0.6s ease-in-out; box-shadow: var(--soft-shadow); }
-        .letter-preview { position: absolute; top: 8px; width: 92%; height: 92%; left: 4%; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2; padding: 25px; box-sizing: border-box; text-align: center; color: var(--dark-text); opacity: 0; visibility: hidden; transform: translateY(0); transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0s 0.6s; display: flex; flex-direction: column; justify-content: center; cursor: pointer; }
-        .letter-preview p { font-family: 'Pacifico', cursive; font-size: 26px; margin: 0; line-height: 1.5; }
+        
+        /* LETTER PREVIEW DENGAN TEKS RATA TENGAH DAN FONT LEBIH BESAR */
+        .letter-preview { 
+            position: absolute; top: 8px; width: 92%; height: 92%; left: 4%; 
+            background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            z-index: 2; padding: 25px; box-sizing: border-box; 
+            color: var(--dark-text); opacity: 0; visibility: hidden; transform: translateY(0); 
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0s 0.6s; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; /* Menengahkan konten secara vertikal */
+            align-items: center;     /* Menengahkan konten secara horizontal */
+            cursor: pointer; 
+            
+            background-image: none; /* Hapus gambar Mofusand dari sini */
+            background-color: #fff; 
+        }
+
+        .letter-preview p { 
+            font-family: 'Cute Font', cursive; 
+            font-size: 40px; /* Diperbesar */
+            font-weight: bold; /* Ditambahkan */
+            margin: 0; 
+            line-height: 1.2; 
+            color: var(--dark-text);
+            text-align: center; /* Rata tengah */
+            padding-right: 0; /* Pastikan tidak ada padding kanan */
+        }
+
         .envelope-front { position: absolute; width: 100%; height: 100%; border-right: 170px solid #a9d6f7; border-top: 110px solid transparent; border-bottom: 110px solid #a9d6f7; border-left: 170px solid var(--primary-blue); top: 0; left: 0; border-radius: 12px; box-sizing: border-box; z-index: 3; transition: opacity 0.6s ease-in-out; }
         .envelope-flap { position: absolute; left: 0; top: 0; width: 100%; height: 110px; transform-origin: top; transition: transform 0.6s ease-in-out; clip-path: polygon(0 0, 100% 0, 50% 100%); background-color: var(--secondary-blue); z-index: 4; }
         .envelope-wrapper.open .envelope-flap { transform: rotateX(180deg); z-index: 0; }
         .envelope-wrapper.open .letter-preview { 
             transform: translateY(-50px); z-index: 5; opacity: 1; visibility: visible; transition-delay: 0s;
-            /* BARU: Aura cinta pada surat pratinjau */
             animation: loveAura 2.5s infinite ease-in-out;
             animation-delay: 0.6s;
         }
         .envelope-wrapper.open .envelope-back, .envelope-wrapper.open .envelope-front { opacity: 0.3; }
-        .instruction-text { margin-top: 25px; font-size: 17px; color: #888; font-weight: 600; z-index: 1; }
+        .instruction-text { margin-top: 25px; font-size: 17px; color: #555; font-weight: 600; z-index: 1; text-shadow: 0 1px 2px #fff; }
         
-        /* BARU: Keyframes untuk animasi aura cinta */
         @keyframes loveAura {
             0%, 100% { box-shadow: 0 0 25px 8px rgba(255, 121, 153, 0.5); }
             50% { box-shadow: 0 0 40px 18px rgba(255, 121, 153, 0.8); }
         }
 
-        /* ================================= */
-        /* --- Tampilan Surat Pop-up (BARU) --- */
-        /* ================================= */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 1000; animation: fadeIn 0.3s; }
         .modal-letter { 
-            background-color: var(--light-blue); /* Warna dasar biru muda */
+            background-color: var(--light-blue);
             border: 2px solid #fff;
             border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
             width: 90%; max-width: 650px; height: 75%; max-height: 550px; 
             padding: 45px; box-sizing: border-box; position: relative; 
-            overflow: hidden; /* Sembunyikan hati yang keluar dari kertas */
+            overflow: hidden;
             animation: slideUp 0.4s ease-out; 
         }
         .modal-letter-content {
-            width: 100%; height: 100%; overflow-y: auto; position: relative; z-index: 2;
+            width: 100%; height: 100%; overflow-y: auto; position: relative; z-index: 2; padding-right: 15px; 
         }
-        .modal-letter p { font-family: 'Dancing Script', cursive; font-size: 30px; line-height: 1.8; color: var(--dark-text); margin: 0; padding-bottom: 20px; }
+
+        .modal-letter p { 
+            font-family: 'Caveat', cursive; 
+            font-size: 28px;               
+            line-height: 1.7;              
+            color: var(--dark-text); 
+            margin: 0; 
+            padding-bottom: 25px; 
+        }
+
         .close-btn { position: absolute; top: 15px; right: 20px; font-size: 32px; font-weight: bold; color: var(--dark-text); cursor: pointer; z-index: 3; }
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
-        /* BARU: Animasi hati berjatuhan di surat */
         .falling-hearts { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
         .falling-hearts .heart-shape {
             position: absolute; content: '♥'; font-size: 20px;
@@ -217,7 +277,6 @@
         .falling-hearts .heart-shape:nth-child(5) { left: 65%; animation-duration: 9s; animation-delay: 3s; }
         .falling-hearts .heart-shape:nth-child(6) { left: 80%; animation-duration: 13s; animation-delay: 1.5s; font-size: 14px; }
         .falling-hearts .heart-shape:nth-child(7) { left: 90%; animation-duration: 6s; animation-delay: 4s; }
-
 
         #memoriesView.page-content.active {
             background: linear-gradient(var(--light-blue), #fff);
@@ -269,7 +328,7 @@
         .photo-flipper.flipped:hover { transform: rotateY(180deg) scale(1.1) rotate(5deg); }
         .photo, .photo-note { position: absolute; width: 100%; height: 100%; top: 0; left: 0; backface-visibility: hidden; object-fit: cover; }
         .photo { width: calc(100% - 20px); height: calc(100% - 35px); top: 10px; left: 10px; }
-        .photo-note { background-color: #fffbe8; transform: rotateY(180deg); display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; font-size: 14px; font-family: 'Dancing Script', cursive; color: var(--dark-text); text-align: center; border-radius: 4px; }
+        .photo-note { background-color: #fffbe8; transform: rotateY(180deg); display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; font-size: 14px; font-family: 'Quicksand', sans-serif; font-weight: 600; color: var(--dark-text); text-align: center; border-radius: 4px; }
 
         @media (max-width: 768px) {
             body { padding: 0; }
@@ -287,7 +346,7 @@
             .profile-body h2, .profile-body p { text-align: center; }
             .envelope { transform: scale(0.9); }
             .letter-preview p { font-size: 22px; }
-            .modal-letter p { font-size: 20px; line-height: 1.6; }
+            .modal-letter p { font-size: 24px; line-height: 1.6; }
             .album-book { width: 90vw; height: calc(90vw * 1.2); }
             .album-pages { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 15px; }
             .photo-flipper { padding: 8px 8px 20px 8px; }
@@ -298,8 +357,7 @@
 <body>
     <div class="book">
         <div id="loginView">
-            <div class="heart">❤</div>
-            <h1>farid loveee</h1>
+            <div class="heart">❤</div> <h1>Farid Lovee</h1>
             <form id="loveForm" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
                 <div class="form-group"><input type="text" id="nameInput" placeholder="Tulis nama spesial di sini..."></div>
                 <button type="submit" id="loginButton">Masuk sayanggg</button>
@@ -322,14 +380,22 @@
                         </div>
                         <div class="profile-body">
                             <h2>Fallie</h2>
-                            <p>Kita ni Bertemu di mobail lejen pada tahun 2022, kita ni awal bertemu cuma karna mabar tapi kita  ternyata sampe nikah anjayyyy</p>
+                            <p>Kita ni Bertemu di mobail lejen pada tahun 2022, kita ni awal bertemu cuma karna mabar tapi kita  ternyata sampe nikah anjayyyy</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="readmeView" class="page-content">
-                    <div class="clouds-bg"></div>
-                    <div class="envelope-wrapper"><div class="envelope"><div class="envelope-back"></div><div id="letterPreview" class="letter-preview"><p>Happy Girlfriend Day yiyiii..</p></div><div class="envelope-front"></div><div class="envelope-flap"></div></div></div>
+                    <div class="envelope-wrapper">
+                        <div class="envelope">
+                            <div class="envelope-back"></div>
+                            <div id="letterPreview" class="letter-preview">
+                                <p>Happy Girlfriend Day yiyiii..</p>
+                            </div>
+                            <div class="envelope-front"></div>
+                            <div class="envelope-flap"></div>
+                        </div>
+                    </div>
                     <p class="instruction-text">Pencet tu amplop untuk biar kebuka, terus kalo mau baca pencet suratnya</p>
                 </div>
 
@@ -340,12 +406,12 @@
                         <div class="album-book">
                             <div class="album-cover">
                                 <div class="cover-design-frame">
-                                    <img src="" alt="Album Cover Photo">
-                                    </div>
+                                    <img src="https://i.ibb.co/NC5LhJ7/Album-Cover-Example.jpg" alt="Album Cover Photo">
+                                </div>
                             </div>
                             <div class="album-pages">
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/FCK7bHz/webcam-toy-photo8-1-1.jpg" alt="Memory 1" class="photo"><div class="photo-note">Ini pas kita di Amani.</div></div>
-                                <div class="photo-flipper"><img src="" alt="Memory 2" class="photo"><div class="photo-note">Kesekian kalinya kita mirrorselfie.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/v410Mh2/mofusand-cat-strawberry.jpg" alt="Memory 2" class="photo"><div class="photo-note">Kesekian kalinya kita mirrorselfie.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/Wv0vbQhf/IMG-8784-1.jpg" alt="Memory 3" class="photo"><div class="photo-note">Ini Pas kita fotbar di tempat martabak.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/pr9tMLsY/IMG-7378-1.png" alt="Memory 4" class="photo"><div class="photo-note">Ini sebelum dimarahin woi.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/pjBt3jpj/IMG-7380-2.png" alt="Memory 5" class="photo"><div class="photo-note">Ini nunggu bubur sejam.</div></div>
@@ -365,7 +431,11 @@
             </div>
             <div class="modal-letter-content">
                 <span id="closeLetterBtn" class="close-btn">&times;</span>
-                <p>Happy Girlfriend Day sayangku cintakuuu,</p><p>gaaaa kerasa udah 3 tahun lebih kita masih sama sama, masih bisa saling ganggu, saling bikin kesal tapi juga saling bikin bahagia. Aku tau aku bukan pacar yang sempurna, bahkan kali ini aku gaa bisa kasih hadiah buat kamu, maaf ya sayang… tapi aku pengen kamu tau satu hal, kalo aku sayang banget banget banget sama kamuuu tauuu..</p><p>Pokonya aku sayang banget banget banget banget sama kamu, lebih dari yang bisa aku ungkapin pakai kata kata. Aku bersyukur banget masih punya kamu di samping aku, yang selalu sabar, selalu ada, dan selalu jadi alasan aku semangat. Aku janji bakal terus jaga kamu, terus sayangin kamu, dan nggak akan pernah bosen nemenin kamu,</p><p>Aku tau kadang aku nyebelin betmut bae, tapi serius… aku tuh nggak bisa bayangin har hari kalo ga sama kamu. Jadi, makasih ya sayang udah mau tetap sama aku sampai sekarang. Aku bener-bener cinta banget sama kamu 💕🥺</p>
+                <p>Happy Girlfriend Day, sayangku cintakuu,</p>
+                <p>Rasanya baru kemarin, tapi nggak terasa ya, kita sudah lewati tiga tahun lebih bersama. Tiga tahun saling ganggu, saling bikin kesal, tapi juga saling membuat bahagia.</p>
+                <p>Aku tahu aku jauh dari sempurna, dan maaf ya sayang, tahun ini aku belum bisa kasih hadiah spesial buat kamu. Tapi ada satu hal yang paling tulus dari hatiku, aku mau kamu tahu kalau aku sayang banget, banget, sama kamu.</p>
+                <p>Aku bersyukur setiap hari punya kamu di sampingku. Kamu yang selalu sabar, selalu ada, dan selalu jadi alasan terbesarku untuk semangat. Aku janji akan selalu jaga kamu, sayangin kamu, dan jadi teman berantem terbaikmu selamanya.</p>
+                <p>Aku tahu kadang aku nyebelin dan suka badmood, tapi jujur, aku nggak bisa bayangin hari-hariku tanpa kamu. Terima kasih ya sayang, sudah bertahan sama aku sampai sekarang. Aku benar-benar cinta sama kamu. Selalu. 💕</p>
             </div>
         </div>
     </div>
@@ -410,14 +480,14 @@
         const letterPreview = document.getElementById('letterPreview'); 
         const closeLetterBtn = document.getElementById('closeLetterBtn');
         envelope.addEventListener('click', () => {
-            if (envelope.classList.contains('open')) { // Jika amplop sudah terbuka, klik untuk menutup
+            if (envelope.classList.contains('open')) {
                 envelope.classList.remove('open');
-            } else { // Jika amplop tertutup, klik untuk membuka
+            } else {
                 envelope.classList.add('open');
             }
         });
         letterPreview.addEventListener('click', (event) => {
-            event.stopPropagation(); // Mencegah event klik menyebar ke amplop
+            event.stopPropagation();
             letterModal.style.display = 'flex';
         });
         if (letterModal.querySelector('#closeLetterBtn')) {
@@ -432,7 +502,7 @@
         });
         const albumBook = document.querySelector('.album-book');
         albumBook.addEventListener('click', (event) => {
-            if (event.target.closest('.album-cover')) { // Hanya merespons klik pada sampul
+            if (event.target.closest('.album-cover')) {
                 albumBook.classList.toggle('open');
             }
         });
@@ -445,5 +515,3 @@
     </script>
 </body>
 </html>
-
-
