@@ -78,8 +78,8 @@
             margin-bottom: 35px; 
             text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
             letter-spacing: 2px; 
-            width: 100%; /* Memastikan elemen mengambil lebar penuh */
-            text-align: center; /* Menambahkan ini untuk memusatkan teks */
+            width: 100%;
+            text-align: center;
         }
         .form-group { margin-bottom: 25px; width: 65%; max-width: 450px; }
         input[type="text"] {
@@ -95,7 +95,6 @@
             outline: none;
         }
         
-        /* Menggunakan animasi Jiggle */
         .input-error { border-color: #e74c3c; animation: jiggle 0.4s; }
         @keyframes jiggle {
             0%, 100% { transform: rotate(0deg); }
@@ -126,7 +125,6 @@
         }
         .nav-button:hover { background-color: var(--light-blue); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.12); }
         
-        /* Tombol Aktif dengan Animasi Bouncing */
         .nav-button.active { 
             background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
             color: #fff; 
@@ -197,11 +195,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Mengganti link rusak dengan pola SVG yang lebih stabil */
             background-image: url("data:image/svg+xml,%3csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15 3a3 3 0 00-3 3v9a3 3 0 106 0V6a3 3 0 00-3-3zm0 2a1 1 0 011 1v9a1 1 0 11-2 0V6a1 1 0 011-1z' fill='%23ffc2d1' fill-opacity='0.4'/%3e%3c/svg%3e");
             background-repeat: repeat;
             background-size: 50px;
-            opacity: 1; /* Opacity diatur di dalam SVG */
+            opacity: 1;
             z-index: 0;
         }
         
@@ -349,57 +346,78 @@
         .photo { width: calc(100% - 20px); height: calc(100% - 35px); top: 10px; left: 10px; }
         .photo-note { background-color: #fffbe8; transform: rotateY(180deg); display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; font-size: 14px; font-family: 'Quicksand', sans-serif; font-weight: 600; color: var(--dark-text); text-align: center; border-radius: 4px; }
 
-        /* CSS untuk Cloud Buddy */
-        #cloud-buddy {
+        /* CSS BARU untuk Cinnamoroll Buddy */
+        #cloud-buddy.cinnamoroll {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 100;
             cursor: pointer;
             transition: transform 0.3s ease;
+            width: 160px; /* Lebar ditambah untuk telinga */
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        #cloud-buddy:hover, #cloud-buddy:active { /* Ditambahkan :active untuk mobile */
+        #cloud-buddy.cinnamoroll:hover, 
+        #cloud-buddy.cinnamoroll:active {
             transform: scale(1.1) rotate(5deg);
         }
 
-        .cloud-face {
-            width: 100px;
-            height: 70px;
+        .cinnamoroll .cloud-face {
+            width: 85px; /* Sedikit lebih kecil dari sebelumnya */
+            height: 65px;
             background: #fff;
-            border-radius: 50px;
+            border-radius: 50%;
             position: relative;
             font-family: 'Quicksand', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
-            color: var(--dark-text);
+            color: #73c2fb; /* Warna mata biru khas Cinnamoroll */
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            user-select: none; /* Agar teks tidak terseleksi saat di-tap */
+            user-select: none;
+            z-index: 2; /* Wajah di atas telinga */
         }
 
-        .cloud-face::before, .cloud-face::after {
-            content: '';
+        /* Menghilangkan bentuk awan lama */
+        .cinnamoroll .cloud-face::before, 
+        .cinnamoroll .cloud-face::after {
+            content: none;
+        }
+
+        .cinnamoroll .ear {
             position: absolute;
-            background: #fff;
-            border-radius: 50%;
+            width: 80px;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 50px / 35px; /* Membuat bentuk oval panjang */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1; /* Telinga di belakang wajah */
         }
 
-        .cloud-face::before {
-            width: 50px; height: 50px; top: -25px; left: 20px;
+        .cinnamoroll .ear-left {
+            top: 40px;
+            left: 0;
+            transform: rotate(-30deg);
         }
 
-        .cloud-face::after {
-            width: 40px; height: 40px; top: -15px; right: 15px;
-        }
-
-        .cloud-bubble {
-            position: absolute;
-            bottom: 85px;
+        .cinnamoroll .ear-right {
+            top: 40px;
             right: 0;
+            transform: rotate(30deg);
+        }
+
+        .cinnamoroll .cloud-bubble {
+            position: absolute;
+            bottom: 95px; /* Sedikit lebih tinggi */
+            right: 5px;
             background: #fff;
+            border: 2px solid var(--primary-blue);
             padding: 10px 15px;
             border-radius: 20px;
             font-size: 14px;
@@ -410,10 +428,16 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             white-space: nowrap;
-            pointer-events: none; /* Agar bubble tidak mengganggu tap */
+            pointer-events: none;
         }
 
-        #cloud-buddy:hover .cloud-bubble, #cloud-buddy:active .cloud-bubble {
+        #cloud-buddy.cinnamoroll:hover .cloud-bubble, 
+        #cloud-buddy.cinnamoroll:active .cloud-bubble {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #cloud-buddy.cinnamoroll.bubble-visible .cloud-bubble {
             opacity: 1;
             transform: translateY(0);
         }
@@ -422,7 +446,7 @@
             body { padding: 0; }
             .book { width: 100%; height: 100%; border-radius: 0; box-shadow: none; border: none; }
             #loginView, .content-pages { border-radius: 0; }
-            #loginView h1 { font-size: 15vw; } /* Ukuran font responsif */
+            #loginView h1 { font-size: 15vw; }
             .button-container { gap: 10px; padding: 15px; }
             .nav-button { padding: 8px 16px; font-size: 14px; }
             .profile-header { height: 150px; }
@@ -482,7 +506,7 @@
                                 <p>Happy Girlfriend Day yiyiii..</p>
                             </div>
                             <div class="envelope-front"></div>
-                            <div class="envelope-flap"></div>
+                            <div class.envelope-flap"></div>
                         </div>
                     </div>
                     <p class="instruction-text">Pencet tu amplop untuk biar kebuka, terus kalo mau baca pencet suratnya</p>
@@ -529,7 +553,9 @@
         </div>
     </div>
     
-    <div id="cloud-buddy">
+    <div id="cloud-buddy" class="cinnamoroll">
+        <div class="ear ear-left"></div>
+        <div class="ear ear-right"></div>
         <div class="cloud-face">^-^</div>
         <div class="cloud-bubble">Hai, Fallie!</div>
     </div>
@@ -565,7 +591,6 @@
             const activeButton = document.querySelector(`.nav-button[data-target="${pageId}"]`);
             if (activeButton) activeButton.classList.add('active');
 
-            // BARU: Ganti teks Cloud Buddy
             const cloudBubble = document.querySelector('#cloud-buddy .cloud-bubble');
             const cloudFace = document.querySelector('#cloud-buddy .cloud-face');
             
@@ -623,6 +648,23 @@
             photo.addEventListener('click', () => {
                 photo.classList.toggle('flipped');
             });
+        });
+
+        // SCRIPT BARU UNTUK CLOUD BUDDY DI MOBILE
+        const cloudBuddy = document.getElementById('cloud-buddy');
+        let bubbleTimeout; // Variabel untuk menyimpan timer
+
+        cloudBuddy.addEventListener('click', () => {
+            // Hapus timer yang mungkin sedang berjalan agar tidak tumpang tindih
+            clearTimeout(bubbleTimeout);
+
+            // Tambahkan kelas untuk memunculkan bubble
+            cloudBuddy.classList.add('bubble-visible');
+
+            // Atur timer untuk menghilangkan bubble setelah 2.5 detik
+            bubbleTimeout = setTimeout(() => {
+                cloudBuddy.classList.remove('bubble-visible');
+            }, 2500); // 2500 milidetik = 2.5 detik
         });
     </script>
 </body>
