@@ -63,7 +63,7 @@
         
         .heart { 
             color: var(--soft-pink); 
-            font-size: 70px;          
+            font-size: 70px;         
             margin-bottom: 15px;      
             text-shadow: 0 3px 6px rgba(0,0,0,0.15);
             display: block; 
@@ -78,6 +78,8 @@
             margin-bottom: 35px; 
             text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
             letter-spacing: 2px; 
+            width: 100%; /* Memastikan elemen mengambil lebar penuh */
+            text-align: center; /* Menambahkan ini untuk memusatkan teks */
         }
         .form-group { margin-bottom: 25px; width: 65%; max-width: 450px; }
         input[type="text"] {
@@ -195,10 +197,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.ibb.co/L5k6t4X/mofusand-pattern.png');
+            /* Mengganti link rusak dengan pola SVG yang lebih stabil */
+            background-image: url("data:image/svg+xml,%3csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15 3a3 3 0 00-3 3v9a3 3 0 106 0V6a3 3 0 00-3-3zm0 2a1 1 0 011 1v9a1 1 0 11-2 0V6a1 1 0 011-1z' fill='%23ffc2d1' fill-opacity='0.4'/%3e%3c/svg%3e");
             background-repeat: repeat;
-            background-size: 150px;
-            opacity: 0.4; 
+            background-size: 50px;
+            opacity: 1; /* Opacity diatur di dalam SVG */
             z-index: 0;
         }
         
@@ -266,8 +269,8 @@
 
         .modal-letter p { 
             font-family: 'Caveat', cursive; 
-            font-size: 28px;                   
-            line-height: 1.7;                  
+            font-size: 28px;                 
+            line-height: 1.7;                
             color: var(--dark-text); 
             margin: 0; 
             padding-bottom: 25px; 
@@ -419,6 +422,7 @@
             body { padding: 0; }
             .book { width: 100%; height: 100%; border-radius: 0; box-shadow: none; border: none; }
             #loginView, .content-pages { border-radius: 0; }
+            #loginView h1 { font-size: 15vw; } /* Ukuran font responsif */
             .button-container { gap: 10px; padding: 15px; }
             .nav-button { padding: 8px 16px; font-size: 14px; }
             .profile-header { height: 150px; }
@@ -457,11 +461,11 @@
             <div class="content-pages">
                 <div id="profileView" class="page-content">
                     <div class="profile-header">
-                        <img src="https://i.ibb.co.com/Z9jCqHX/Screenshot-2025-09-29-1922511.png" alt="Cover Photo" class="cover-photo">
+                        <img src="https://i.ibb.co/ZgJcqHX/Screenshot-2025-09-29-192251.png" alt="Cover Photo" class="cover-photo">
                     </div>
                     <div class="profile-details-wrapper">
                         <div class="profile-picture-container">
-                            <img src="https://i.ibb.co.com/0phtT1dd/IMG-7374-1.png" alt="Profile Picture" class="profile-picture">
+                            <img src="https://i.ibb.co/0phtT1d/IMG-7374-1.png" alt="Profile Picture" class="profile-picture">
                         </div>
                         <div class="profile-body">
                             <h2>Fallie</h2>
@@ -495,12 +499,12 @@
                                 </div>
                             </div>
                             <div class="album-pages">
-                                <div class="photo-flipper"><img src="https://i.ibb.co.com/FCK7bHz/webcam-toy-photo8-1-1.jpg" alt="Memory 1" class="photo"><div class="photo-note">Ini pas kita di Amani.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/FCK7bHz/webcam-toy-photo8-1-1.jpg" alt="Memory 1" class="photo"><div class="photo-note">Ini pas kita di Amani.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co/v410Mh2/mofusand-cat-strawberry.jpg" alt="Memory 2" class="photo"><div class="photo-note">Kesekian kalinya kita mirrorselfie.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co/Wv0vbQhf/IMG-8784-1.jpg" alt="Memory 3" class="photo"><div class="photo-note">Ini Pas kita fotbar di tempat martabak.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co.com/pr9tMLsY/IMG-7378-1.png" alt="Memory 4" class="photo"><div class="photo-note">Ini sebelum dimarahin woi.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co.com/pjBt3jpj/IMG-7380-2.png" alt="Memory 5" class="photo"><div class="photo-note">Ini nunggu bubur sejam.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co/HDh8bbsN/IMG-7379-1.png" alt="Memory 6" class="photo"><div class="photo-note">Ini abis beli bubur woi.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/Wv0vbQh/IMG-8784-1.jpg" alt="Memory 3" class="photo"><div class="photo-note">Ini Pas kita fotbar di tempat martabak.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/pr9tMLs/IMG-7378-1.png" alt="Memory 4" class="photo"><div class="photo-note">Ini sebelum dimarahin woi.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/pBt3jpj/IMG-7380-2.png" alt="Memory 5" class="photo"><div class="photo-note">Ini nunggu bubur sejam.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/HDh8bbs/IMG-7379-1.png" alt="Memory 6" class="photo"><div class="photo-note">Ini abis beli bubur woi.</div></div>
                             </div>
                         </div>
                     </div>
