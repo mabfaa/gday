@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Fallie</title>
+    <title>Falliebook</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&family=Caveat:wght@500&family=Mochiy+Pop+P+One&family=Cute+Font&display=swap" rel="stylesheet">
@@ -61,11 +61,10 @@
             border-radius: 20px;
         }
         
-        /* KEMBALIKAN IKON HATI DI SINI */
         .heart { 
             color: var(--soft-pink); 
-            font-size: 70px;         
-            margin-bottom: 15px;     
+            font-size: 70px;          
+            margin-bottom: 15px;      
             text-shadow: 0 3px 6px rgba(0,0,0,0.15);
             display: block; 
             line-height: 1; 
@@ -93,8 +92,15 @@
             box-shadow: 0 0 12px var(--purple-accent), inset 0 3px 6px rgba(0,0,0,0.08);
             outline: none;
         }
-        .input-error { border-color: #e74c3c; animation: shake 0.5s; }
-        @keyframes shake { 0%, 100% {transform: translateX(0);} 25% {transform: translateX(-5px);} 75% {transform: translateX(5px);} }
+        
+        /* Menggunakan animasi Jiggle */
+        .input-error { border-color: #e74c3c; animation: jiggle 0.4s; }
+        @keyframes jiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-3deg); }
+            75% { transform: rotate(3deg); }
+        }
+
         #loginButton { 
             width: 65%; max-width: 450px; padding: 18px; 
             background: linear-gradient(45deg, var(--secondary-blue), var(--primary-blue));
@@ -117,10 +123,22 @@
             transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
         .nav-button:hover { background-color: var(--light-blue); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.12); }
+        
+        /* Tombol Aktif dengan Animasi Bouncing */
         .nav-button.active { 
             background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue));
-            color: #fff; box-shadow: var(--soft-shadow); transform: translateY(-2px);
+            color: #fff; 
+            box-shadow: var(--soft-shadow); 
+            transform: translateY(-2px);
+            animation: bounceIn 0.5s ease;
         }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .content-pages { 
             width: 100%; padding: 0; box-sizing: border-box;
             text-align: center; flex-grow: 1; overflow-y: auto; 
@@ -154,8 +172,8 @@
             padding-top: 25px; padding-left: 240px; text-align: left;
         }
         .profile-body h2 { 
-             margin: 0 0 10px 0; font-family: 'Quicksand', sans-serif; 
-             font-weight: 700; font-size: 36px; color: var(--dark-text);
+            margin: 0 0 10px 0; font-family: 'Quicksand', sans-serif; 
+            font-weight: 700; font-size: 36px; color: var(--dark-text);
         }
         .profile-body p { margin: 0; font-size: 19px; line-height: 1.7; color: #666; }
         
@@ -190,7 +208,6 @@
         .envelope-wrapper.open .envelope::after { opacity: 0; }
         .envelope-back { position: absolute; width: 100%; height: 100%; background-color: var(--primary-blue); border-radius: 12px; z-index: 1; transition: opacity 0.6s ease-in-out; box-shadow: var(--soft-shadow); }
         
-        /* LETTER PREVIEW DENGAN TEKS RATA TENGAH DAN FONT LEBIH BESAR */
         .letter-preview { 
             position: absolute; top: 8px; width: 92%; height: 92%; left: 4%; 
             background-color: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
@@ -199,23 +216,22 @@
             transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, visibility 0s 0.6s; 
             display: flex; 
             flex-direction: column; 
-            justify-content: center; /* Menengahkan konten secara vertikal */
-            align-items: center;     /* Menengahkan konten secara horizontal */
+            justify-content: center;
+            align-items: center; 
             cursor: pointer; 
-            
-            background-image: none; /* Hapus gambar Mofusand dari sini */
+            background-image: none;
             background-color: #fff; 
         }
 
         .letter-preview p { 
             font-family: 'Cute Font', cursive; 
-            font-size: 40px; /* Diperbesar */
-            font-weight: bold; /* Ditambahkan */
+            font-size: 40px;
+            font-weight: bold;
             margin: 0; 
             line-height: 1.2; 
             color: var(--dark-text);
-            text-align: center; /* Rata tengah */
-            padding-right: 0; /* Pastikan tidak ada padding kanan */
+            text-align: center;
+            padding-right: 0;
         }
 
         .envelope-front { position: absolute; width: 100%; height: 100%; border-right: 170px solid #a9d6f7; border-top: 110px solid transparent; border-bottom: 110px solid #a9d6f7; border-left: 170px solid var(--primary-blue); top: 0; left: 0; border-radius: 12px; box-sizing: border-box; z-index: 3; transition: opacity 0.6s ease-in-out; }
@@ -250,8 +266,8 @@
 
         .modal-letter p { 
             font-family: 'Caveat', cursive; 
-            font-size: 28px;               
-            line-height: 1.7;              
+            font-size: 28px;                   
+            line-height: 1.7;                  
             color: var(--dark-text); 
             margin: 0; 
             padding-bottom: 25px; 
@@ -329,6 +345,75 @@
         .photo, .photo-note { position: absolute; width: 100%; height: 100%; top: 0; left: 0; backface-visibility: hidden; object-fit: cover; }
         .photo { width: calc(100% - 20px); height: calc(100% - 35px); top: 10px; left: 10px; }
         .photo-note { background-color: #fffbe8; transform: rotateY(180deg); display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; font-size: 14px; font-family: 'Quicksand', sans-serif; font-weight: 600; color: var(--dark-text); text-align: center; border-radius: 4px; }
+
+        /* CSS untuk Cloud Buddy */
+        #cloud-buddy {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 100;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #cloud-buddy:hover, #cloud-buddy:active { /* Ditambahkan :active untuk mobile */
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .cloud-face {
+            width: 100px;
+            height: 70px;
+            background: #fff;
+            border-radius: 50px;
+            position: relative;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            user-select: none; /* Agar teks tidak terseleksi saat di-tap */
+        }
+
+        .cloud-face::before, .cloud-face::after {
+            content: '';
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .cloud-face::before {
+            width: 50px; height: 50px; top: -25px; left: 20px;
+        }
+
+        .cloud-face::after {
+            width: 40px; height: 40px; top: -15px; right: 15px;
+        }
+
+        .cloud-bubble {
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-text);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            pointer-events: none; /* Agar bubble tidak mengganggu tap */
+        }
+
+        #cloud-buddy:hover .cloud-bubble, #cloud-buddy:active .cloud-bubble {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
             body { padding: 0; }
@@ -412,10 +497,10 @@
                             <div class="album-pages">
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/FCK7bHz/webcam-toy-photo8-1-1.jpg" alt="Memory 1" class="photo"><div class="photo-note">Ini pas kita di Amani.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co/v410Mh2/mofusand-cat-strawberry.jpg" alt="Memory 2" class="photo"><div class="photo-note">Kesekian kalinya kita mirrorselfie.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co.com/Wv0vbQhf/IMG-8784-1.jpg" alt="Memory 3" class="photo"><div class="photo-note">Ini Pas kita fotbar di tempat martabak.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/Wv0vbQhf/IMG-8784-1.jpg" alt="Memory 3" class="photo"><div class="photo-note">Ini Pas kita fotbar di tempat martabak.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/pr9tMLsY/IMG-7378-1.png" alt="Memory 4" class="photo"><div class="photo-note">Ini sebelum dimarahin woi.</div></div>
                                 <div class="photo-flipper"><img src="https://i.ibb.co.com/pjBt3jpj/IMG-7380-2.png" alt="Memory 5" class="photo"><div class="photo-note">Ini nunggu bubur sejam.</div></div>
-                                <div class="photo-flipper"><img src="https://i.ibb.co.com/HDh8bbsN/IMG-7379-1.png" alt="Memory 6" class="photo"><div class="photo-note">Ini abis beli bubur woi.</div></div>
+                                <div class="photo-flipper"><img src="https://i.ibb.co/HDh8bbsN/IMG-7379-1.png" alt="Memory 6" class="photo"><div class="photo-note">Ini abis beli bubur woi.</div></div>
                             </div>
                         </div>
                     </div>
@@ -439,6 +524,12 @@
             </div>
         </div>
     </div>
+    
+    <div id="cloud-buddy">
+        <div class="cloud-face">^-^</div>
+        <div class="cloud-bubble">Hai, Fallie!</div>
+    </div>
+
     <script>
         const loginView = document.getElementById('loginView');
         loginView.style.display = 'flex';
@@ -461,6 +552,7 @@
         nameInput.addEventListener('input', () => nameInput.classList.remove('input-error'));
         const navButtons = document.querySelectorAll('.nav-button');
         const contentPages = document.querySelectorAll('.page-content');
+        
         function showPage(pageId) {
             contentPages.forEach(page => page.classList.remove('active'));
             navButtons.forEach(btn => btn.classList.remove('active'));
@@ -468,7 +560,23 @@
             if (targetPage) targetPage.classList.add('active');
             const activeButton = document.querySelector(`.nav-button[data-target="${pageId}"]`);
             if (activeButton) activeButton.classList.add('active');
+
+            // BARU: Ganti teks Cloud Buddy
+            const cloudBubble = document.querySelector('#cloud-buddy .cloud-bubble');
+            const cloudFace = document.querySelector('#cloud-buddy .cloud-face');
+            
+            if (pageId === 'profileView') {
+                cloudBubble.textContent = 'Ini profil kamu!';
+                cloudFace.textContent = '^-^';
+            } else if (pageId === 'readmeView') {
+                cloudBubble.textContent = 'Ada surat buatmu~';
+                cloudFace.textContent = 'o.o';
+            } else if (pageId === 'memoriesView') {
+                cloudBubble.textContent = 'Kenangan kita!';
+                cloudFace.textContent = '>.<';
+            }
         }
+
         navButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const targetPageId = button.dataset.target;
@@ -515,4 +623,3 @@
     </script>
 </body>
 </html>
-
