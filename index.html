@@ -17,8 +17,8 @@
             --purple-accent: #c7bfff;
             --dark-text: #3c4048; /* Warna teks gelap yang lembut */
             --soft-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            --cute-blue-bg-start: #d3eafc; /* Biru langit sangat muda */
-            --cute-blue-bg-end: #a8e0ff;   /* Biru langit cerah */
+            --cute-blue-bg-start: #d3eafc; 
+            --cute-blue-bg-end: #a8e0ff;
         }
 
         body {
@@ -26,7 +26,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* DIPERBAIKI: Menggunakan gradasi biru muda yang benar */
             background: linear-gradient(135deg, var(--cute-blue-bg-start) 0%, var(--cute-blue-bg-end) 100%);
             margin: 0;
             font-family: 'Quicksand', sans-serif;
@@ -124,60 +123,33 @@
         .page-content.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- Halaman Profil --- */
         #profileView { 
             height: 100%;
         }
         .profile-header { 
-            position: relative; 
-            width: 100%; 
-            height: 240px;
+            position: relative; width: 100%; height: 240px;
             background-color: var(--light-blue);
         }
-        .cover-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .cover-photo { width: 100%; height: 100%; object-fit: cover; }
         .profile-details-wrapper {
-            position: relative;
-            padding: 0 45px;
-            height: calc(100% - 240px);
+            position: relative; padding: 0 45px; height: calc(100% - 240px);
         }
         .profile-picture-container { 
-            position: absolute; 
-            top: -85px;
-            left: 45px;
-            width: 170px; 
-            height: 170px; 
-            border-radius: 50%; 
-            background-color: #fff;
-            padding: 8px; 
+            position: absolute; top: -85px; left: 45px;
+            width: 170px; height: 170px; border-radius: 50%; 
+            background-color: #fff; padding: 8px; 
             box-shadow: 0 6px 20px rgba(0,0,0,0.2); 
-            border: 4px solid var(--primary-blue);
-            z-index: 5;
-            transition: all 0.3s ease-out;
+            border: 4px solid var(--primary-blue); z-index: 5;
         }
         .profile-picture { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
         .profile-body { 
-            padding-top: 25px; 
-            padding-left: 240px; 
-            text-align: left;
-            transition: all 0.3s ease-out;
+            padding-top: 25px; padding-left: 240px; text-align: left;
         }
         .profile-body h2 { 
-             margin: 0 0 10px 0;
-             font-family: 'Quicksand', sans-serif; 
-             font-weight: 700; 
-             font-size: 36px; 
-             color: var(--dark-text);
+             margin: 0 0 10px 0; font-family: 'Quicksand', sans-serif; 
+             font-weight: 700; font-size: 36px; color: var(--dark-text);
         }
-        .profile-body p { 
-            margin: 0;
-            font-size: 19px; 
-            line-height: 1.7; 
-            color: #666; 
-        }
+        .profile-body p { margin: 0; font-size: 19px; line-height: 1.7; color: #666; }
         
         #readmeView.page-content.active { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; background: var(--light-blue); overflow: hidden; position: relative; }
         .clouds-bg { position: absolute; top: 0; left: 0; width: 200%; height: 100%; background: url(https://i.imgur.com/G094eF9.png) repeat-x; animation: moveClouds 40s linear infinite; }
@@ -192,14 +164,60 @@
         .envelope-front { position: absolute; width: 100%; height: 100%; border-right: 170px solid #a9d6f7; border-top: 110px solid transparent; border-bottom: 110px solid #a9d6f7; border-left: 170px solid var(--primary-blue); top: 0; left: 0; border-radius: 12px; box-sizing: border-box; z-index: 3; transition: opacity 0.6s ease-in-out; }
         .envelope-flap { position: absolute; left: 0; top: 0; width: 100%; height: 110px; transform-origin: top; transition: transform 0.6s ease-in-out; clip-path: polygon(0 0, 100% 0, 50% 100%); background-color: var(--secondary-blue); z-index: 4; }
         .envelope-wrapper.open .envelope-flap { transform: rotateX(180deg); z-index: 0; }
-        .envelope-wrapper.open .letter-preview { transform: translateY(-50px); z-index: 5; opacity: 1; visibility: visible; transition-delay: 0s; }
+        .envelope-wrapper.open .letter-preview { 
+            transform: translateY(-50px); z-index: 5; opacity: 1; visibility: visible; transition-delay: 0s;
+            /* BARU: Aura cinta pada surat pratinjau */
+            animation: loveAura 2.5s infinite ease-in-out;
+            animation-delay: 0.6s;
+        }
         .envelope-wrapper.open .envelope-back, .envelope-wrapper.open .envelope-front { opacity: 0.3; }
         .instruction-text { margin-top: 25px; font-size: 17px; color: #888; font-weight: 600; z-index: 1; }
+        
+        /* BARU: Keyframes untuk animasi aura cinta */
+        @keyframes loveAura {
+            0%, 100% { box-shadow: 0 0 25px 8px rgba(255, 121, 153, 0.5); }
+            50% { box-shadow: 0 0 40px 18px rgba(255, 121, 153, 0.8); }
+        }
+
+        /* ================================= */
+        /* --- Tampilan Surat Pop-up (BARU) --- */
+        /* ================================= */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 1000; animation: fadeIn 0.3s; }
-        .modal-letter { background-color: #fff; background-image: linear-gradient(rgba(var(--primary-blue), 0.1) 1px, transparent 1px); background-size: 100% 2.2em; border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); width: 90%; max-width: 650px; height: 75%; max-height: 550px; padding: 45px; box-sizing: border-box; position: relative; overflow-y: auto; animation: slideUp 0.4s ease-out; }
+        .modal-letter { 
+            background-color: var(--light-blue); /* Warna dasar biru muda */
+            border: 2px solid #fff;
+            border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); 
+            width: 90%; max-width: 650px; height: 75%; max-height: 550px; 
+            padding: 45px; box-sizing: border-box; position: relative; 
+            overflow: hidden; /* Sembunyikan hati yang keluar dari kertas */
+            animation: slideUp 0.4s ease-out; 
+        }
+        .modal-letter-content {
+            width: 100%; height: 100%; overflow-y: auto; position: relative; z-index: 2;
+        }
         .modal-letter p { font-family: 'Dancing Script', cursive; font-size: 30px; line-height: 1.8; color: var(--dark-text); margin: 0; padding-bottom: 20px; }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 32px; font-weight: bold; color: #aaa; cursor: pointer; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 32px; font-weight: bold; color: var(--dark-text); cursor: pointer; z-index: 3; }
         @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        /* BARU: Animasi hati berjatuhan di surat */
+        .falling-hearts { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .falling-hearts .heart-shape {
+            position: absolute; content: '♥'; font-size: 20px;
+            color: var(--secondary-blue); top: -20px;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+        .falling-hearts .heart-shape:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; }
+        .falling-hearts .heart-shape:nth-child(2) { left: 20%; animation-duration: 12s; animation-delay: 1s; font-size: 15px; }
+        .falling-hearts .heart-shape:nth-child(3) { left: 35%; animation-duration: 7s; animation-delay: 2s; }
+        .falling-hearts .heart-shape:nth-child(4) { left: 50%; animation-duration: 11s; animation-delay: 0.5s; font-size: 18px; }
+        .falling-hearts .heart-shape:nth-child(5) { left: 65%; animation-duration: 9s; animation-delay: 3s; }
+        .falling-hearts .heart-shape:nth-child(6) { left: 80%; animation-duration: 13s; animation-delay: 1.5s; font-size: 14px; }
+        .falling-hearts .heart-shape:nth-child(7) { left: 90%; animation-duration: 6s; animation-delay: 4s; }
+
 
         #memoriesView.page-content.active {
             background: linear-gradient(var(--light-blue), #fff);
@@ -253,84 +271,27 @@
         .photo { width: calc(100% - 20px); height: calc(100% - 35px); top: 10px; left: 10px; }
         .photo-note { background-color: #fffbe8; transform: rotateY(180deg); display: flex; justify-content: center; align-items: center; padding: 10px; box-sizing: border-box; font-size: 14px; font-family: 'Dancing Script', cursive; color: var(--dark-text); text-align: center; border-radius: 4px; }
 
-        /* ======================================= */
-        /* --- KODE UNTUK MOBILE VIEW (RESPONSIVE) --- */
-        /* ======================================= */
         @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-            .book {
-                width: 100%;
-                height: 100%;
-                border-radius: 0;
-                box-shadow: none;
-                border: none;
-            }
-            #loginView, .content-pages {
-                border-radius: 0;
-            }
-            .button-container {
-                gap: 10px;
-                padding: 15px;
-            }
-            .nav-button {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-            /* Penyesuaian Halaman Profil di Mobile */
-            .profile-header {
-                height: 150px; /* Header lebih pendek di HP */
-            }
-            .profile-details-wrapper {
-                display: block; /* Layout menjadi vertikal */
-                padding: 0;
-                height: auto;
-            }
+            body { padding: 0; }
+            .book { width: 100%; height: 100%; border-radius: 0; box-shadow: none; border: none; }
+            #loginView, .content-pages { border-radius: 0; }
+            .button-container { gap: 10px; padding: 15px; }
+            .nav-button { padding: 8px 16px; font-size: 14px; }
+            .profile-header { height: 150px; }
+            .profile-details-wrapper { display: block; padding: 0 20px; height: auto; }
             .profile-picture-container {
-                /* Atur ulang posisi ke tengah atas */
-                top: -75px; /* Setengah tinggi foto profil baru */
-                left: 50%;
-                transform: translateX(-50%);
-                width: 150px;
-                height: 150px;
+                top: auto; left: 50%; transform: translateX(-50%);
+                width: 140px; height: 140px; bottom: auto; top: -70px;
             }
-            .profile-body {
-                padding: 90px 20px 20px 20px; /* Ruang untuk foto profil di atas */
-                text-align: center;
-            }
-            .profile-body h2, .profile-body p {
-                text-align: center;
-            }
-
-            /* Penyesuaian Halaman Read Me di Mobile */
-            .envelope {
-                transform: scale(0.9);
-            }
-            .letter-preview p {
-                font-size: 22px; /* Perkecil ukuran teks surat */
-            }
-            .modal-letter p {
-                font-size: 20px; /* Perkecil ukuran teks modal */
-                line-height: 1.6;
-            }
-
-            /* Penyesuaian Halaman Our Memories di Mobile */
-            .album-book {
-                width: 90vw;
-                height: calc(90vw * 1.2); /* Proporsi tetap terjaga */
-            }
-            .album-pages {
-                grid-template-columns: repeat(2, 1fr); /* 2 kolom saja */
-                gap: 10px;
-                padding: 15px;
-            }
-            .photo-flipper {
-                padding: 8px 8px 20px 8px; /* Perkecil padding foto */
-            }
-            .photo-note {
-                font-size: 12px;
-            }
+            .profile-body { padding: 80px 0 20px 0; text-align: center; }
+            .profile-body h2, .profile-body p { text-align: center; }
+            .envelope { transform: scale(0.9); }
+            .letter-preview p { font-size: 22px; }
+            .modal-letter p { font-size: 20px; line-height: 1.6; }
+            .album-book { width: 90vw; height: calc(90vw * 1.2); }
+            .album-pages { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 15px; }
+            .photo-flipper { padding: 8px 8px 20px 8px; }
+            .photo-note { font-size: 12px; }
         }
     </style>
 </head>
@@ -341,7 +302,7 @@
             <h1>farid loveee</h1>
             <form id="loveForm" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
                 <div class="form-group"><input type="text" id="nameInput" placeholder="Tulis nama spesial di sini..."></div>
-                <button type="submit" id="loginButton">Masukkk</button>
+                <button type="submit" id="loginButton">Kirim</button>
             </form>
         </div>
         <div id="mainContentView">
@@ -398,8 +359,14 @@
     </div>
     <div id="letterModal" class="modal-overlay">
         <div class="modal-letter">
-            <span id="closeLetterBtn" class="close-btn">&times;</span>
-            <p>Happy Girlfriend Day sayangku cintakuuu,</p><p>gaaaa kerasa udah 3 tahun lebih kita masih sama sama, masih bisa saling ganggu, saling bikin kesal tapi juga saling bikin bahagia. Aku tau aku bukan pacar yang sempurna, bahkan kali ini aku gaa bisa kasih hadiah buat kamu, maaf ya sayang… tapi aku pengen kamu tau satu hal, kalo aku sayang banget banget banget sama kamuuu tauuu..</p><p>Pokonya aku sayang banget banget banget banget sama kamu, lebih dari yang bisa aku ungkapin pakai kata kata. Aku bersyukur banget masih punya kamu di samping aku, yang selalu sabar, selalu ada, dan selalu jadi alasan aku semangat. Aku janji bakal terus jaga kamu, terus sayangin kamu, dan nggak akan pernah bosen nemenin kamu,</p><p>Aku tau kadang aku nyebelin betmut bae, tapi serius… aku tuh nggak bisa bayangin har hari kalo ga sama kamu. Jadi, makasih ya sayang udah mau tetap sama aku sampai sekarang. Aku bener-bener cinta banget sama kamu 💕🥺</p>
+            <div class="falling-hearts">
+                <span class="heart-shape">♥</span><span class="heart-shape">♥</span><span class="heart-shape">♥</span>
+                <span class="heart-shape">♥</span><span class="heart-shape">♥</span><span class="heart-shape">♥</span><span class="heart-shape">♥</span>
+            </div>
+            <div class="modal-letter-content">
+                <span id="closeLetterBtn" class="close-btn">&times;</span>
+                <p>Happy Girlfriend Day sayangku cintakuuu,</p><p>gaaaa kerasa udah 3 tahun lebih kita masih sama sama, masih bisa saling ganggu, saling bikin kesal tapi juga saling bikin bahagia. Aku tau aku bukan pacar yang sempurna, bahkan kali ini aku gaa bisa kasih hadiah buat kamu, maaf ya sayang… tapi aku pengen kamu tau satu hal, kalo aku sayang banget banget banget sama kamuuu tauuu..</p><p>Pokonya aku sayang banget banget banget banget sama kamu, lebih dari yang bisa aku ungkapin pakai kata kata. Aku bersyukur banget masih punya kamu di samping aku, yang selalu sabar, selalu ada, dan selalu jadi alasan aku semangat. Aku janji bakal terus jaga kamu, terus sayangin kamu, dan nggak akan pernah bosen nemenin kamu,</p><p>Aku tau kadang aku nyebelin betmut bae, tapi serius… aku tuh nggak bisa bayangin har hari kalo ga sama kamu. Jadi, makasih ya sayang udah mau tetap sama aku sampai sekarang. Aku bener-bener cinta banget sama kamu 💕🥺</p>
+            </div>
         </div>
     </div>
     <script>
@@ -478,4 +445,3 @@
     </script>
 </body>
 </html>
-
