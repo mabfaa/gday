@@ -17,7 +17,6 @@
             --purple-accent: #c7bfff;
             --dark-text: #3c4048; /* Warna teks gelap yang lembut */
             --soft-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            /* NEW: Warna biru muda untuk background lucu */
             --cute-blue-bg-start: #d3eafc; /* Biru langit sangat muda */
             --cute-blue-bg-end: #a8e0ff;   /* Biru langit cerah */
         }
@@ -27,7 +26,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* UPDATED: Menggunakan gradasi biru muda */
+            /* DIUBAH KEMBALI: Menggunakan gradasi biru muda yang benar */
             background: linear-gradient(135deg, var(--cute-blue-bg-start) 0%, var(--cute-blue-bg-end) 100%);
             margin: 0;
             font-family: 'Quicksand', sans-serif;
@@ -123,7 +122,6 @@
         .page-content.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- Halaman Profil --- */
         #profileView { 
             height: 100%;
         }
@@ -222,24 +220,14 @@
         }
         .album-cover::before { content: ''; position: absolute; left: 25px; top: 0; height: 100%; width: 20px; background: var(--secondary-blue); border-right: 2px solid rgba(0,0,0,0.1); border-radius: 0 5px 5px 0; }
         .cover-design-frame { 
-            width: 220px; 
-            height: 220px; 
-            background: #fff; 
-            border: 18px solid var(--secondary-blue); 
-            outline: 3px solid #003049; 
-            border-radius: 10px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            overflow: hidden; /* Penting untuk gambar agar tidak keluar bingkai */
+            width: 220px; height: 220px; background: #fff; 
+            border: 18px solid var(--secondary-blue); outline: 3px solid #003049; 
+            border-radius: 10px; display: flex; justify-content: center; 
+            align-items: center; overflow: hidden;
         }
         .cover-design-frame img {
-            width: 100%; /* Gambar akan mengisi seluruh bingkai */
-            height: 100%;
-            object-fit: cover; /* Agar gambar tidak terdistorsi dan mengisi bingkai */
-            display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+            width: 100%; height: 100%; object-fit: cover; display: block;
         }
-
         .album-pages {
             position: absolute; width: 100%; height: 100%; background: #fffbe8; 
             box-shadow: inset 0 0 20px rgba(0,0,0,0.25), 0 8px 20px rgba(0,0,0,0.2);
@@ -288,7 +276,7 @@
                         </div>
                         <div class="profile-body">
                             <h2>Fallie</h2>
-                            <p>Kita ni Bertemu di mobail lejen pada tahun 2022, kita ni awal bertemu cuma karna mabar tapi kita  ternyata sampe nikah anjayyyy</p>
+                            <p>Kita ni Bertemu di mobail lejen pada tahun 2022, kita ni awal bertemu cuma karna mabar tapi kita  ternyata sampe nikah anjayyyy</p>
                         </div>
                     </div>
                 </div>
@@ -380,7 +368,6 @@
             event.stopPropagation(); // Mencegah event klik menyebar ke amplop
             letterModal.style.display = 'flex';
         });
-        // Pastikan closeLetterBtn ada di dalam modal
         if (letterModal.querySelector('#closeLetterBtn')) {
              letterModal.querySelector('#closeLetterBtn').addEventListener('click', () => {
                 letterModal.style.display = 'none';
